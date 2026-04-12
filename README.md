@@ -29,6 +29,12 @@ Some prompts to answer:
 
 You can include a simple diagram or bullet list if helpful.
 
+Each `Song` uses four features: `genre`, `mood`, `energy`, and `acousticness`. The `UserProfile` stores a preferred genre, preferred mood, a target energy level (0–1), and a boolean for whether the user likes acoustic music. The `Recommender` scores each song using a weighted sum — genre match is worth 35%, energy proximity 30%, mood match 20%, and acousticness match 15% — so the total score is always between 0 and 1. Songs are then ranked by score and the top k results are returned as recommendations.
+
+**Algorithm Recipe:** For each song, compute `score = genre_match × 0.35 + energy_proximity × 0.30 + mood_match × 0.20 + acoustic_match × 0.15`, where genre and mood matches use soft similarity tables so adjacent styles earn partial credit instead of zero. The 20 scored songs are sorted descending and the top k are returned. A known bias of this weighting is that genre can override mood — a user who is feeling melancholic may still receive high-energy songs simply because their preferred genre matches, even though a better emotional fit exists in a different genre.
+
+
+
 ---
 
 ## Getting Started
