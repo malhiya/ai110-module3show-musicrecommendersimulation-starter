@@ -30,10 +30,10 @@ def main() -> None:
     print("=" * 50)
     for i, rec in enumerate(recommendations, start=1):
         song, score, reasons = rec
-        bar = "#" * round(score * 20)
+        # bar = "#" * round(score * 20)
         print(f"\n  #{i}  {song['title']}  —  {song['artist']}")
         print(f"       Genre: {song['genre']}  |  Mood: {song['mood']}")
-        print(f"       Score: {score * 100:.0f}/100  [{bar:<20}]")
+        print(f"       Score: {score * 100:.0f}/100 ") #[{bar:<20}]
         print("       Why this song?")
         for reason in reasons:
             print(f"         • {reason}")
