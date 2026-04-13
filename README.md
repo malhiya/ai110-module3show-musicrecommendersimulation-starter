@@ -33,7 +33,7 @@ Each `Song` uses four features: `genre`, `mood`, `energy`, and `acousticness`. T
 
 **Algorithm Recipe:** For each song, compute `score = genre_match × 0.35 + energy_proximity × 0.30 + mood_match × 0.20 + acoustic_match × 0.15`, where genre and mood matches use soft similarity tables so adjacent styles earn partial credit instead of zero. The 20 scored songs are sorted descending and the top k are returned. A known bias of this weighting is that genre can override mood — a user who is feeling melancholic may still receive high-energy songs simply because their preferred genre matches, even though a better emotional fit exists in a different genre.
 
-
+![CLI Output](CLI_output.png)
 
 ---
 
@@ -81,6 +81,21 @@ Use this section to document the experiments you ran. For example:
 - How did your system behave for different types of users
 
 When I bumped the genre weight up, the results got more consistent for common genres like pop and lofi — but niche users basically got stuck seeing the same one or two songs on repeat. I also tested a sad EDM profile, which was the most interesting case because the genre matched a lot of songs but the mood was pulling in a totally different direction, and the system kept recommending high-energy euphoric tracks instead of emotional ones. I tried adjusting the energy weight to see if lowering it would fix that, but then chill users started getting random high-energy songs mixed in, so there was no clean fix. It made me realize the formula works well for "average" users but starts breaking the moment someone's taste doesn't fit neatly into one category.
+
+**Profile: Jazz Cafe Acoustic**
+![System Evaluation 1](sys_eval_p1.png)
+
+**Profile: Peaceful MetalHead**
+![System Evaluation 2](sys_eval_p2.png)
+
+**Profile: Euphoric EDM**
+![System Evaluation 3](sys_eval_p3.png)
+
+**Profile: Ambient Meditation**
+![System Evaluation 4](sys_eval_p4.png)
+
+**Profile: Sad Raver**
+![System Evaluation 5](sys_eval_p5.png)
 
 ---
 
