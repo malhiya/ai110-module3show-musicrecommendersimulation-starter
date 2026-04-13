@@ -11,7 +11,7 @@ Your goal is to:
 - Evaluate what your system gets right and wrong
 - Reflect on how this mirrors real world AI recommenders
 
-Replace this paragraph with your own summary of what your version does.
+For my version, I built a recommender called Melody Match that scores songs based on four things: genre, mood, energy level, and whether the song is acoustic. I added soft-matching so that similar genres like pop and indie pop still get partial credit instead of a zero, which made the results feel way more natural. I also added five sad EDM songs to the catalog to test edge cases where the mood and genre point in different directions. Building this showed me that even a small formula has real tradeoffs — changing one weight helps some users but breaks results for others, which is exactly how real apps like Spotify have to think.
 
 ---
 
@@ -80,6 +80,8 @@ Use this section to document the experiments you ran. For example:
 - What happened when you added tempo or valence to the score
 - How did your system behave for different types of users
 
+When I bumped the genre weight up, the results got more consistent for common genres like pop and lofi — but niche users basically got stuck seeing the same one or two songs on repeat. I also tested a sad EDM profile, which was the most interesting case because the genre matched a lot of songs but the mood was pulling in a totally different direction, and the system kept recommending high-energy euphoric tracks instead of emotional ones. I tried adjusting the energy weight to see if lowering it would fix that, but then chill users started getting random high-energy songs mixed in, so there was no clean fix. It made me realize the formula works well for "average" users but starts breaking the moment someone's taste doesn't fit neatly into one category.
+
 ---
 
 ## Limitations and Risks
@@ -94,6 +96,8 @@ Examples:
 
 You will go deeper on this in your model card.
 
+The catalog only has 25 songs, so for a lot of genres like folk, blues, or classical there's only one option — meaning the system basically gives up and starts recommending random stuff that doesn't fit. The formula also doesn't understand lyrics, context, or anything emotional beyond the mood label, so it can't tell the difference between a sad song that feels healing versus one that just feels heavy. Genre weight being the highest also means the system can overfavor one style and push everything else down even when the mood or energy would've been a better match. Overall it works as a proof of concept but wouldn't hold up if real users with complex or niche tastes actually tried it.
+
 ---
 
 ## Reflection
@@ -106,6 +110,10 @@ Write 1 to 2 paragraphs here about what you learned:
 
 - about how recommenders turn data into predictions
 - about where bias or unfairness could show up in systems like this
+
+I learned that recommenders don't actually "understand" music — they just compare numbers and return whatever scores highest, which means the quality of the output is completely dependent on how well you designed the formula and how much data you have. The most interesting thing I learned is that bias sneaks in through the data itself — if your catalog barely has any folk or blues songs, those users will always get worse recommendations no matter how good your formula is, which is the same problem real apps face at scale.
+
+The unfairness part also showed up in how the system handles emotions — moods like "romantic" or "soulful" have no similar neighbors in the scoring, so users who want that vibe get ranked on technicalities instead of anything that actually matches how they feel. It made me think differently about apps like Spotify — what feels like a smart recommendation is really just a much bigger and more refined version of this same idea, and there are probably still users who get worse results because their taste doesn't fit the patterns the system was built around.
 
 
 ---
