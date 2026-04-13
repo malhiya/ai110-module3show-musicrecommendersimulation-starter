@@ -12,13 +12,16 @@ GENRE_SIMILARITY: Dict[Tuple[str, str], float] = {
 }
 
 MOOD_SIMILARITY: Dict[Tuple[str, str], float] = {
-    ("happy", "euphoric"):    0.7,
-    ("happy", "uplifting"):   0.6,
-    ("chill", "relaxed"):     0.7,
-    ("chill", "peaceful"):    0.6,
-    ("chill", "focused"):     0.5,
-    ("intense", "energetic"): 0.7,
-    ("intense", "angry"):     0.5,
+    ("happy", "euphoric"):        0.7,
+    ("happy", "uplifting"):       0.6,
+    ("chill", "relaxed"):         0.7,
+    ("chill", "peaceful"):        0.6,
+    ("chill", "focused"):         0.5,
+    ("intense", "energetic"):     0.7,
+    ("intense", "angry"):         0.5,
+    ("sad", "melancholic"):       0.7,
+    ("sad", "moody"):             0.6,
+    ("sad", "peaceful"):          0.3,
 }
 
 def genre_match(user_genre: str, song_genre: str) -> float:

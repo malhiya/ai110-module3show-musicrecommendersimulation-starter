@@ -19,3 +19,8 @@ id,title,artist,genre,mood,energy,tempo_bpm,valence,danceability,acousticness
 18,Empty Glass Bar,Ray Hollow,blues,sad,0.44,82,0.29,0.52,0.85
 19,Suncoast Vibes,Zion Riders,reggae,uplifting,0.66,88,0.88,0.83,0.55
 20,Golden Hour Soul,Marla Grace,soul,soulful,0.58,96,0.82,0.69,0.72
+21,Digital Tears,Cascade Unit,edm,melancholic,0.78,128,0.28,0.75,0.04
+22,Lost in the Rave,Void Syntax,edm,sad,0.82,132,0.22,0.80,0.03
+23,Neon Collapse,Dusk Protocol,edm,melancholic,0.71,124,0.31,0.72,0.05
+24,Afterglow,Signal Fade,edm,sad,0.76,130,0.25,0.78,0.04
+25,Ghost Frequency,Pulse Array,edm,melancholic,0.68,122,0.29,0.70,0.06
